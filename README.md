@@ -65,6 +65,7 @@ Things you may want to cover:
 |------|----|-------|
 |id|integer||
 |boby|text||
+|image|string||
 
 ### Association
 - belongs_to :user
