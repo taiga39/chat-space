@@ -1,1 +1,76 @@
-%p hello world!
+!!!
+%html{lang: "ja"}
+  %head
+    %meta{charset: "utf-8"}
+  %header
+    チャットグループが作成されました。
+  %body
+    .main
+      .left
+        .left__header
+          .left__header__user-name
+            Taiga Ishikawa
+          %ul
+            %li.list<
+              %i.fa.fa-edit
+            %li.list<
+              %i.fa.fa-cog
+
+        .left__bottom
+          .left__bottom__group-name
+            group1
+          .left__bottom__new-messege
+            こんにちわ
+
+          .left__bottom__group-name
+            group2
+          .left__bottom__new-messege
+            おやすみなさい
+
+          .left__bottom__group-name
+            group3
+          .left__bottom__new-messege
+            おはようございます
+
+      .right
+        .right-header
+          .chat-info
+            .chat-info__now-group
+              group1
+            .chat-info__now-member
+              MEMBER : イシカワタイガ
+          .edit-button
+            Edit
+
+        .right-bottom
+          .messege-box.clearfix
+            .up-messege
+              .up-messege__member-name
+                イシカワタイガ
+              .up-messege__date
+                2018/10/28 08:08:08
+            .chat
+              おはようございます
+          .messege-box.cleafix
+            .messege-box__messege
+              .up-messege__member-name
+                イシカワタイガ
+              .up-messege__date
+                2018/10/28 08:08:08
+            .chat
+              おはようございます
+
+          .sendbox
+            %form
+              %textarea{:placeholder => "type a messege"}
+
+            %form
+              %label{:for => "filesend"}
+                %input{:type => "file",:id => "filesend",:style => "display:none;"}
+                %i.fa.fa-picture-o
+
+            %form
+              %input{:type => "submit", :value => "Send",:id => "sendbtn"}
+
+
+
