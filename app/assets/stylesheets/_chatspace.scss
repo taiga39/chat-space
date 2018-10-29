@@ -2,14 +2,14 @@ html{
   height:100%;
 }
 
-header{
-  background-color:#38aef0;
-  color:white;
-  font-size: 16px;
-  text-align:center;
-  height: 25px;
-  font-weight: bold;
-}
+// header{
+//   background-color:#38aef0;
+//   color:white;
+//   font-size: 16px;
+//   text-align:center;
+//   height: 25px;
+//   font-weight: bold;
+// }
 
 body{
   height:100%;
@@ -41,7 +41,7 @@ body{
 
       &__bottom{
         background-color:#2f3e51;
-        height: calc(100% - 145px);
+        height: calc(100% - 120px);
         padding:20px 20px 0px 20px;
         overflow: scroll;
 
