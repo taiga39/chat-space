@@ -9,12 +9,13 @@
       .left
         .left__header
           .left__header__user-name
-            Taiga Ishikawa
+            = current_user.name
           %ul
             %li.list<
               %i.fa.fa-edit
             %li.list<
-              %i.fa.fa-cog
+              = link_to edit_user_path(current_user) do
+                %i.fa.fa-cog
 
         .left__bottom
           .left__bottom__group-name
