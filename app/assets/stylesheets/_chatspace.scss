@@ -1,0 +1,180 @@
+html{
+  height:100%;
+}
+
+header{
+  background-color:#38aef0;
+  color:white;
+  font-size: 16px;
+  text-align:center;
+  height: 25px;
+  font-weight: bold;
+}
+
+body{
+  height:100%;
+}
+  .main{
+    height: 100%;
+    width:100%;
+
+  }
+
+    .left{
+      width:300px;
+      height:100%;
+      color:#ffffff;
+      float:left;
+
+      &__header{
+        background-color: #253141;
+        height:100px;
+        padding: 0px 20px;
+
+        &__user-name{
+          font-size: 16px;
+          font-weight: bold;
+          line-height:100px;
+          float:left;
+        }
+      }
+
+      &__bottom{
+        background-color:#2f3e51;
+        height: calc(100% - 145px);
+        padding:20px 20px 0px 20px;
+        overflow: scroll;
+
+        &__group-name{
+          margin-bottom:5px;
+          font-size: 15px;
+        }
+
+        &__new-messege{
+          margin-bottom: 40px;
+          font-size:11px;
+        }
+      }
+    }
+      ul{
+          float:right;
+        }
+          .list{
+            float:left;
+            line-height: 100px;
+            padding-right: 5px;
+          }
+
+
+      .right{
+        height:100%;
+        width:calc(100% - 300px);
+        float:right;
+
+  }
+        .right-header{
+          height:100px;
+          width:100%;
+
+        }
+          .chat-info{
+            float:left;
+            margin-left:40px;
+            margin-top: 35px;
+
+            &__now-group{
+              font-size: 20px;
+              color:#333333;
+            }
+
+            &__now-member{
+              font-size: 12px;
+              color:#999999;
+              margin-top: 15px;
+          }
+      }
+          .edit-button{
+            float: right;
+            height:40px;
+            border:solid 3px;
+            border-color:#38aef0;
+            margin-top:28px;
+            color:#38aef0;
+            margin-right:40px;
+            text-align: center;
+            padding: 0 20px;
+            line-height: 40px;
+            font-weight: bold;
+          }
+
+
+        .right-bottom{
+          background-color:#eeeeee;
+          width:100%;
+          height:calc(100% - 170px);
+          padding-top: 46px;
+        }
+          .messege-box{
+            margin-bottom: 40px;
+            margin-left: 40px;
+            height:40px;
+          }
+            .up-messege{
+              &__member-name{
+                font-size: 16px;
+                font-weight: bold;
+                color:#434a54;
+                float:left;
+                margin-right: 10px;
+              }
+              &__date{
+                font-size:12px;
+                color:#999999;
+              }
+            }
+
+            .chat{
+              font-size: 14px;
+              color: #434a54;
+              margin-top: 10px;
+              margin-bottom: 40px;
+            }
+          .sendbox{
+            height:90px;
+            width:calc(100% - 300px);
+            position: absolute;
+            bottom:0;
+            left:300px;
+            background-color:#aaaaaa;
+          }
+            textarea{
+              margin:20px 15px 20px 40px;
+              width:calc(100% - 225px);
+              height:50px;
+              position: absolute;
+              z-index: 1;
+              line-height: 50px;
+              padding-left: 10px;
+              font-size: 16px;
+              color:#434a54;
+              }
+
+
+              .fa.fa-picture-o{
+                position: absolute;
+                z-index: 2;
+                line-height: 90px;
+                right:185px;
+            }
+
+            #sendbtn{
+              float:right;
+              margin:20px 40px 20px 0px;
+              width: 120px;
+              height:50px;
+              color:white;
+              background-color: #38aef0;
+              text-align: center;
+              font-weight:bold;
+            }
+
