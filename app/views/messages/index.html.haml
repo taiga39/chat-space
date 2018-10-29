@@ -12,26 +12,20 @@
             = current_user.name
           %ul
             %li.list<
-              %i.fa.fa-edit
+              = link_to new_group_path,{style:"color:white;"} do
+                %i.fa.fa-edit
+
             %li.list<
-              = link_to edit_user_path(current_user) do
+              = link_to edit_user_path(current_user),{style:"color:white;"} do
                 %i.fa.fa-cog
 
         .left__bottom
-          .left__bottom__group-name
-            group1
-          .left__bottom__new-messege
-            こんにちわ
-
-          .left__bottom__group-name
-            group2
-          .left__bottom__new-messege
-            おやすみなさい
-
-          .left__bottom__group-name
-            group3
-          .left__bottom__new-messege
-            おはようございます
+          - current_user.groups.each do |group|
+            = link_to group_messages_path(group),{style:"color:#ffffff;"} do
+              .left__bottom__group-name
+                = group.name
+              .left__bottom__new-messege
+                こんにちわ
 
       .right
         .right-header
@@ -41,7 +35,10 @@
             .chat-info__now-member
               MEMBER : イシカワタイガ
           .edit-button
-            Edit
+            = link_to edit_group_path(current_user),{style:"color:#38aef0;",} do
+              .edit
+                Edit
+
 
         .right-bottom
           .messege-box.clearfix
@@ -63,7 +60,7 @@
 
           .sendbox
             %form
-              %textarea{:placeholder => "type a messege"}
+              %textarea{placeholder: "type a messege"}
 
             %form
               %label{for:"filesend"}

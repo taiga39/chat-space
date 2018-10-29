@@ -2,6 +2,10 @@ html{
   height:100%;
 }
 
+a {
+  text-decoration: none;
+}
+
 // header{
 //   background-color:#38aef0;
 //   color:white;
@@ -44,6 +48,7 @@ body{
         height: calc(100% - 120px);
         padding:20px 20px 0px 20px;
         overflow: scroll;
+
 
         &__group-name{
           margin-bottom:5px;
@@ -97,7 +102,7 @@ body{
           .edit-button{
             float: right;
             height:40px;
-            border:solid 3px;
+            border:solid 2px;
             border-color:#38aef0;
             margin-top:28px;
             color:#38aef0;
@@ -107,6 +112,7 @@ body{
             line-height: 40px;
             font-weight: bold;
           }
+
 
 
         .right-bottom{
