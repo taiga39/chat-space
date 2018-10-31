@@ -25,15 +25,17 @@
               .left__bottom__group-name
                 = group.name
               .left__bottom__new-messege
-                こんにちわ
+                = group.show_last_message
 
       .right
         .right-header
           .chat-info
             .chat-info__now-group
-              group1
+              = @group.name
             .chat-info__now-member
-              MEMBER : イシカワタイガ
+              MEMBER:
+              - @group.users.each do |user|
+                = user.name
           .edit-button
             = link_to edit_group_path(current_user),{style:"color:#38aef0;",} do
               .edit
@@ -41,34 +43,15 @@
 
 
         .right-bottom
-          .messege-box.clearfix
-            .up-messege
-              .up-messege__member-name
-                イシカワタイガ
-              .up-messege__date
-                2018/10/28 08:08:08
-            .chat
-              おはようございます
-          .messege-box.cleafix
-            .messege-box__messege
-              .up-messege__member-name
-                イシカワタイガ
-              .up-messege__date
-                2018/10/28 08:08:08
-            .chat
-              おはようございます
+          = render @messages
 
           .sendbox
-            %form
-              %textarea{placeholder: "type a messege"}
-
-            %form
-              %label{for:"filesend"}
-                %input{type:"file",id: "filesend",style: "display:none;"}
-                %i.fa.fa-picture-o
-
-            %form
-              %input{type: "submit", value: "Send",id: "sendbtn"}
-
-
+            .form
+              = form_for [@group, @message] do |f|
+                = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+                .form__mask
+                  = f.label :image, class: 'form__mask__image' do
+                    = fa_icon 'picture-o', class: 'icon'
+                    = f.file_field :image, style: "display:none;"
+                = f.submit 'Send', class: 'form__submit'
 
