@@ -31,9 +31,11 @@
         .right-header
           .chat-info
             .chat-info__now-group
-              group1
+              = @group.name
             .chat-info__now-member
-              MEMBER : イシカワタイガ
+              MEMBER:
+              - @group.users.each do |user|
+                = user.name
           .edit-button
             = link_to edit_group_path(current_user),{style:"color:#38aef0;",} do
               .edit
