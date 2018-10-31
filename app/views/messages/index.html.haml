@@ -59,16 +59,24 @@
               おはようございます
 
           .sendbox
-            %form
-              %textarea{placeholder: "type a messege"}
+            / %form
+            /   %textarea{placeholder: "type a messege"}
 
-            %form
-              %label{for:"filesend"}
-                %input{type:"file",id: "filesend",style: "display:none;"}
-                %i.fa.fa-picture-o
+            / %form
+            /   %label{for:"filesend"}
+            /     %input{type:"file",id: "filesend",style: "display:none;"}
+            /     %i.fa.fa-picture-o
 
-            %form
-              %input{type: "submit", value: "Send",id: "sendbtn"}
+            / %form
+            /   %input{type: "submit", value: "Send",id: "sendbtn"}
+            .form
+              = form_for [@group, @message] do |f|
+                = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+                .form__mask
+                  = f.label :image, class: 'form__mask__image' do
+                    = fa_icon 'picture-o', class: 'icon'
+                    = f.file_field :image, style: "display:none;"
+                = f.submit 'Send', class: 'form__submit'
 
 
 
