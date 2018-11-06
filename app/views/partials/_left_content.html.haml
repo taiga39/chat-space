@@ -1,0 +1,20 @@
+.left
+  .left__header
+    .left__header__user-name
+      = current_user.name
+    %ul
+      %li.list<
+        = link_to new_group_path,{style:"color:white;"} do
+          %i.fa.fa-edit
+
+      %li.list<
+        = link_to edit_user_path(current_user),{style:"color:white;"} do
+          %i.fa.fa-cog
+
+  .left__bottom
+    - current_user.groups.each do |group|
+      = link_to group_messages_path(group),{style:"color:#ffffff;"} do
+        .left__bottom__group-name
+          = group.name
+        .left__bottom__new-message
+          = group.show_last_message

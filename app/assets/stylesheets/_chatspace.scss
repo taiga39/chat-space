@@ -55,7 +55,7 @@ body{
           font-size: 15px;
         }
 
-        &__new-messege{
+        &__new-message{
           margin-bottom: 40px;
           font-size:11px;
         }
@@ -111,6 +111,7 @@ body{
             padding: 0 20px;
             line-height: 40px;
             font-weight: bold;
+
           }
 
 
@@ -118,18 +119,18 @@ body{
         .right-bottom{
           background-color:#eeeeee;
           width:100%;
-          height:calc(100% - 170px);
+          height:calc(100% - 230px);
           padding-top: 46px;
           overflow: scroll;
         }
-          .messege-box{
+          .message-box{
             margin-bottom: 40px;
             margin-left: 40px;
             height:40px;
 
 
           }
-            .messege{
+            .message{
               &__member-name{
                 font-size: 16px;
                 font-weight: bold;
@@ -169,7 +170,9 @@ body{
                 font-size: 16px;
                 color:#434a54;
                 }
-
+                  #textbox{
+                    // font-size:20px;
+                  }
 
                 .icon{
                   position: absolute;

@@ -3,29 +3,9 @@
   %head
     %meta{charset: "utf-8"}
   %header
-    / チャットグループが作成されました。
   %body
     .main
-      .left
-        .left__header
-          .left__header__user-name
-            = current_user.name
-          %ul
-            %li.list<
-              = link_to new_group_path,{style:"color:white;"} do
-                %i.fa.fa-edit
-
-            %li.list<
-              = link_to edit_user_path(current_user),{style:"color:white;"} do
-                %i.fa.fa-cog
-
-        .left__bottom
-          - current_user.groups.each do |group|
-            = link_to group_messages_path(group),{style:"color:#ffffff;"} do
-              .left__bottom__group-name
-                = group.name
-              .left__bottom__new-messege
-                = group.show_last_message
+      = render "partials/left_content"
 
       .right
         .right-header
@@ -37,9 +17,11 @@
               - @group.users.each do |user|
                 = user.name
           .edit-button
-            = link_to edit_group_path(current_user),{style:"color:#38aef0;",} do
-              .edit
-                Edit
+            = link_to "Edit", edit_group_path(@group), class: 'edit-button-inside'
+            / = link_to edit_group_path(current_user),{style:"color:#38aef0;",} do
+            /   .edit
+            /     Edit
+
 
 
         .right-bottom
@@ -47,7 +29,7 @@
 
           .sendbox
             .form
-              = form_for [@group, @message] do |f|
+              = form_for [@group, @message],html: {class: 'item_form'} do |f|
                 = f.text_field :content, class: 'form__message', placeholder: 'type a message'
                 .form__mask
                   = f.label :image, class: 'form__mask__image' do

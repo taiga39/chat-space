@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def format_posted_time(time)
-   time.to_s
-  end
+  # def format_posted_time(time)
+  #  time.to_s
+  # end
 end
