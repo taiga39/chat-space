@@ -18,22 +18,17 @@
                 = user.name
           .edit-button
             = link_to "Edit", edit_group_path(@group), class: 'edit-button-inside'
-            / = link_to edit_group_path(current_user),{style:"color:#38aef0;",} do
-            /   .edit
-            /     Edit
 
 
 
         .right-bottom
           = render @messages
 
-          .sendbox
-            .form
-              = form_for [@group, @message],html: {class: 'item_form'} do |f|
-                = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-                .form__mask
-                  = f.label :image, class: 'form__mask__image' do
-                    = fa_icon 'picture-o', class: 'icon'
-                    = f.file_field :image, style: "display:none;"
-                = f.submit 'Send', class: 'form__submit'
-
+          .form
+            = form_for [@group, @message],html: {class: 'item_form'} do |f|
+              = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+              / .form__mask
+              = f.label :image, class: 'form__mask__image' do
+                = fa_icon 'picture-o', class: 'icon'
+                = f.file_field :image, style: "display:none;"
+              = f.submit 'Send', class: 'form__btn'

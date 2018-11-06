@@ -35,6 +35,7 @@ $(document).on('turbolinks:load', function() {
         $('.right-bottom').append(html)
         $('.form__message').val('')
         $('.message').animate({scrollTop: $(".message")[0].scrollHeight}, 1500);
+        alert("送信できてますよ");
       })
       .fail(function() {
         alert('error');

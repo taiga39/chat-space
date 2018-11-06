@@ -150,7 +150,7 @@ body{
               margin-top: 10px;
               margin-bottom: 40px;
             }
-          .sendbox{
+          .form{
             height:90px;
             width:calc(100% - 300px);
             position: absolute;
@@ -158,7 +158,6 @@ body{
             left:300px;
             background-color:#aaaaaa;
           }
-            .form{}
               .form__message{
                 margin:20px 15px 20px 40px;
                 width:calc(100% - 225px);
@@ -181,7 +180,7 @@ body{
                   right:185px;
                   top:40px;
               }
-              .form__submit{
+              .form__btn{
                 float:right;
                 margin:20px 40px 20px 0px;
                 width: 120px;
