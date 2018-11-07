@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
       format.html { redirect_to root_path}
       format.json
 
-    end
+      end
 
     end
   end

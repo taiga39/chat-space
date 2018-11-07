@@ -37,9 +37,7 @@ $(document).on('turbolinks:load', function() {
         $('.right-bottom').animate({scrollTop: $('.right-bottom')[0].scrollHeight}, 'fast');
 
       })
-      .fail(function() {
-        alert('error');
-      });
+
     })
   });
 })
