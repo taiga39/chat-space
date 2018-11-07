@@ -17,7 +17,7 @@
               - @group.users.each do |user|
                 = user.name
           .edit-button
-            = link_to "Edit", edit_group_path(@group), class: 'edit-button-inside'
+            = link_to "Edit", edit_group_path(@group), class: 'edit-button-inside',style:"color:#38aef0;"
 
 
 
@@ -27,7 +27,6 @@
           .form
             = form_for [@group, @message],html: {class: 'item_form'} do |f|
               = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-              / .form__mask
               = f.label :image, class: 'form__mask__image' do
                 = fa_icon 'picture-o', class: 'icon'
                 = f.file_field :image, style: "display:none;"

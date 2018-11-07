@@ -30,12 +30,12 @@ $(document).on('turbolinks:load', function() {
       contentType: false
   })
       .done(function(data){
-        // console.log(data)
+
         var html = buildHTML(data);
         $('.right-bottom').append(html)
         $('.form__message').val('')
         $('.right-bottom').animate({scrollTop: $('.right-bottom')[0].scrollHeight}, 'fast');
-        // alert("送信できてますよ");
+
       })
       .fail(function() {
         alert('error');
