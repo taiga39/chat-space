@@ -33,7 +33,7 @@ $(document).on('turbolinks:load', function() {
 
         var html = buildHTML(data);
         $('.right-bottom').append(html)
-        $('.form__message').val('')
+        $("form")[0].reset();
         $('.right-bottom').animate({scrollTop: $('.right-bottom')[0].scrollHeight}, 'fast');
 
       })
