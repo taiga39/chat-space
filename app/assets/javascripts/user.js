@@ -16,6 +16,7 @@ $(function() {
   }
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
+
         $.ajax({
           type: 'GET',
           url: '/users',
@@ -24,6 +25,7 @@ $(function() {
     })
         .done(function(users) {
           if (users.length !== 0){
+            search_list.empty();
             users.forEach(function(user){
             appendName(user);
               });
