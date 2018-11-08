@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
   def index
     @users = User.where('name LIKE(?)',"%#{params[:name]}%").where.not(id:current_user.id)
     respond_to do |format|
+      format.html
       format.json
     end
   end
@@ -17,6 +17,9 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def delete
   end
 
 
