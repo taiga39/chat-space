@@ -1,5 +1,14 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  def index
+    @users = User.where('name LIKE(?)',"%#{params[:name]}%").where.not(id:current_user.id)
+    respond_to do |format|
+      format.json
+    end
+  end
+
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
@@ -10,8 +19,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
-  end
+
 
   private
 
