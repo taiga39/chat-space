@@ -31,6 +31,7 @@ $(function() {
             search_list.empty();
             users.forEach(function(user){
             appendName(user);
+
               });
             }
             else {
@@ -42,22 +43,26 @@ $(function() {
           })
 
   });
-
-
-
-});
-// $(function){
       var chatmember = $("#chat-group-users")
   $(document).off("click");
   $(document).on("click",".chat-group-user__btn--add",function(){
       var user_name = $(this).data("user-name");
       var user_id = $(this).data("user-id");
-      var html = `<div class="chat-group-user clearfix">
+      var addhtml = `<div class="chat-group-user clearfix">
                   <input{name: "chat_group[user_ids][]", type: "hidden", value:'${user_id}'>  </input>
                   <p class="chat-group-user__name">${user_name}</p>
+                  <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
                   </div>`
-          chatmember.append(html);
+          chatmember.append(addhtml);
           $(this).parent().remove();
-  });
+});
+  $(document).on("click",".chat-group-user__btn--remove",function(){
+              $(this).parent().remove();
+ });
+
+
+
+});
+
 
 })
