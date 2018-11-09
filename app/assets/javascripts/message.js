@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load', function() {
   $(function(){
     function buildHTML(message){
-    var html = `<div class='message-box'dataid=${message.id}>
+    var html = `<div class='message-box' data-id="${message.id}">
                   <div class='message'>
                     <div class='message__member-name'>
                       ${message.name}
@@ -35,25 +35,33 @@ $(document).on('turbolinks:load', function() {
         $('.right-bottom').append(html)
         $("form")[0].reset();
         $('.right-bottom').animate({scrollTop: $('.right-bottom')[0].scrollHeight}, 'fast');
+
       })
+
     })
     var interval = setInterval(function() {
       if (window.location.href.match(/\/groups\/\d+\/messages/)){
     $.ajax({
-      url: location.href,
+      url: location.href.json,
+      type:"GET",
       dataType:'json'
     })
     .done(function(json){
-      var id = $("message-box").data("messageId");
+      var latest_id = $(".message-box:last").data("id");
       var insertHTML = "";
       json.messages.forEach(function(message) {
-          insertHTML += buildHTML(message);
+        if (message.id > latest_id ) {
+          insertHTML += buildHTML(message)
+          console.log(message.id)
+        }
       });
-      $('.right-bottom').append(insertHTML);
+      console.log("23")
+      $('.right-bottom').append(insertHTML)
+      $('.right-bottom').animate({scrollTop: $('.right-bottom')[0].scrollHeight}, 'fast');
       })
-    } else {
-      clearInterval(interval);
-    }} ,5 * 1000 );
+      } else {
+        clearInterval(interval);
+   }} , 5 * 1000 );
 
   });
 })
