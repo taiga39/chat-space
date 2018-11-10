@@ -16,7 +16,6 @@ $(document).on('turbolinks:load', function() {
                 </div>`;
     return html;
   }
-
   $('.item_form').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -60,31 +59,6 @@ $(document).on('turbolinks:load', function() {
 })
 
 
-
-
-
-  // $(function(){
-  //   setInterval(update, 10000);
-  // });
-  // function update(){
-  //   if($(".message-box")[0]){
-  //     var latest_id = $(".message-box:last").data("id");
-  //   } else {
-  //     var latest_id = 0
-  //   }
-  //   $.ajax({
-  //     url: location.href,
-  //     type: 'GET',
-  //     data: {id: latest_id},
-  //     dataType:'json'
-  //   })
-  //   .always(function(data){
-  //     $.each(data,function(i,data){
-  //       var htm = buildHTML(data);
-  //       $('.right-bottom').append(htm)
-  //     });
-  //   });
-  // }
 
 
 
