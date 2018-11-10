@@ -28,40 +28,64 @@ $(document).on('turbolinks:load', function() {
       dataType: 'json',
       processData: false,
       contentType: false
-  })
-      .done(function(data){
-
-        var html = buildHTML(data);
-        $('.right-bottom').append(html)
-        $("form")[0].reset();
-        $('.right-bottom').animate({scrollTop: $('.right-bottom')[0].scrollHeight}, 'fast');
-
-      })
-
     })
-    var interval = setInterval(function() {
-      if (window.location.href.match(/\/groups\/\d+\/messages/)){
-    $.ajax({
-      url: location.href.json,
-      type:"GET",
-      dataType:'json'
-    })
-    .done(function(json){
-      var latest_id = $(".message-box:last").data("id");
-      var insertHTML = "";
-      json.messages.forEach(function(message) {
-        if (message.id > latest_id ) {
-          insertHTML += buildHTML(message)
-          console.log(message.id)
-        }
-      });
-      console.log("23")
-      $('.right-bottom').append(insertHTML)
+    .done(function(data){
+      var html = buildHTML(data);
+      $('.right-bottom').append(html)
+      $("form")[0].reset();
       $('.right-bottom').animate({scrollTop: $('.right-bottom')[0].scrollHeight}, 'fast');
+    })
+  })
+  var interval = setInterval(function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      var latest_id = $(".message-box:last").data("id");
+      $.ajax({
+        url: location.href,
+        type: 'GET',
+        data: {id: latest_id},
+        dataType:'json'
+      })
+      .done(function(datar) {
+        datar.forEach(function(message) {
+          var insertHTML = buildHTML(message);
+          $('.right-bottom').append(insertHTML);
+          $('.right-bottom').animate({scrollTop: $('.right-bottom')[0].scrollHeight}, 'fast');
+        })
       })
       } else {
         clearInterval(interval);
-   }} , 5 * 1000 );
-
+      }
+    } , 5 * 1000 );
   });
 })
+
+
+
+
+
+  // $(function(){
+  //   setInterval(update, 10000);
+  // });
+  // function update(){
+  //   if($(".message-box")[0]){
+  //     var latest_id = $(".message-box:last").data("id");
+  //   } else {
+  //     var latest_id = 0
+  //   }
+  //   $.ajax({
+  //     url: location.href,
+  //     type: 'GET',
+  //     data: {id: latest_id},
+  //     dataType:'json'
+  //   })
+  //   .always(function(data){
+  //     $.each(data,function(i,data){
+  //       var htm = buildHTML(data);
+  //       $('.right-bottom').append(htm)
+  //     });
+  //   });
+  // }
+
+
+
+
