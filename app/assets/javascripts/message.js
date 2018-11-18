@@ -1,8 +1,8 @@
 $(document).on('turbolinks:load', function() {
   $(function(){
     function buildHTML(message){
-    var addImage = ''
-    if (message.image.url){
+    var addImage = ' '
+    if (message.image){
       addImage = `<img src="${message.image.url}" class="lower-message__image">`;
     }
     var html = `<div class='message-box' data-id="${message.id}">
