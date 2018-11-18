@@ -1,6 +1,10 @@
 $(document).on('turbolinks:load', function() {
   $(function(){
     function buildHTML(message){
+    var addImage = '';
+    if (message.image.url) {
+      addImage = `<img src="${message.image.url}" class="lower-message__image">`;
+    }
     var html = `<div class='message-box' data-id="${message.id}">
                   <div class='message'>
                     <div class='message__member-name'>
@@ -11,6 +15,7 @@ $(document).on('turbolinks:load', function() {
                     </div>
                     <div class='chat'>
                       ${message.content}
+                      ${addImage}
                     </div>
                   </div>
                 </div>`;
