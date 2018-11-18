@@ -69,3 +69,10 @@ gem 'json', git: 'https://github.com/flori/json.git', branch: 'v1.8'
 group :production do
   gem 'unicorn'
 end
+group :development, :test do
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+end
