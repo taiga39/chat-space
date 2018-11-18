@@ -12,6 +12,7 @@ class MessagesController < ApplicationController
   end
   def create
     @message = @group.messages.new(message_params)
+    @message.user = current_user
     if @message.save
     respond_to do |format|
       format.html { redirect_to root_path}
