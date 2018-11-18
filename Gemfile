@@ -66,6 +66,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'json', git: 'https://github.com/flori/json.git', branch: 'v1.8'
+gem 'listen'
 group :production do
   gem 'unicorn'
 end
