@@ -1,10 +1,7 @@
 $(document).on('turbolinks:load', function() {
   $(function(){
-    function buildHTML(message){
-    var addImage = ' '
-    if (message.image){
-      addImage = `<img src="${message.image.url}" class="lower-message__image">`;
-    }
+    var buildHTML = function(message) {
+    if(message.content && message.image.url){
     var html = `<div class='message-box' data-id="${message.id}">
                   <div class='message'>
                     <div class='message__member-name'>
@@ -14,13 +11,45 @@ $(document).on('turbolinks:load', function() {
                       ${message.created_at}
                     </div>
                     <div class='chat'>
-                      <p class="lower-message__content">
+                      <div class="lower-message__content">
                         ${message.content}
-                      </p>
-                      ${addImage}
+                      </div>
+                      <img src="${message.image.url}">
                     </div>
                   </div>
                 </div>`;
+    } else if (message.content) {
+    var html = `<div class='message-box' data-id="${message.id}">
+                  <div class='message'>
+                    <div class='message__member-name'>
+                      ${message.name}
+                    </div>
+                    <div class='message__date'>
+                      ${message.created_at}
+                    </div>
+                    <div class='chat'>
+                      <div class="lower-message__content">
+                      ${message.content}
+                      </div>
+
+                    </div>
+                  </div>
+                </div>`;
+     } else if (message.image.url) {
+    var html = `<div class='message-box' data-id="${message.id}">
+                  <div class='message'>
+                    <div class='message__member-name'>
+                      ${message.name}
+                    </div>
+                    <div class='message__date'>
+                      ${message.created_at}
+                    </div>
+                    <div class='chat'>
+                      <img src="${message.image.url}">
+                    </div>
+                  </div>
+                </div>`;
+              }
     return html;
   }
   $('.item_form').on('submit', function(e){
